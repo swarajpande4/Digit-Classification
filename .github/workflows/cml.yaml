@@ -13,6 +13,8 @@ jobs:
           # Your ML workflow goes here
           /usr/bin/python3 -m pip install --upgrade pip
           pip install -r requirements.txt
+          
+          python code/get_data.py
           python code/featurization.py
           python code/train_model.py
           python code/eval.py
