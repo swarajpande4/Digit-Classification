@@ -1,0 +1,25 @@
+name: model-digit-classifier
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    container: docker://dvcorg/cml-py3:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: cml_run
+        env: 
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Your ML workflow goes here
+          pip install -r requirements.txt
+          python code/featurization.py
+          python code/train_model.py
+          python code/eval.py
+          
+          echo "## Model metrics" >> report.md
+          cat metrics/metrics.txt >> report.md
+          
+          echo "## Confusion matrix" >> report.md
+          cml-publish metrics/confmat.png --md >> report.md
+          
+          cml-send-comment report.md
