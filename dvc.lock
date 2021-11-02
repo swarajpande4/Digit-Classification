@@ -4,8 +4,8 @@ stages:
     cmd: python code/featurization.py
     deps:
     - path: code/featurization.py
-      md5: 9029804236e5d938335bca1596424bc3
-      size: 1459
+      md5: 8420367696b6b1a93078de486e8cdae2
+      size: 1333
     - path: data/test_data.csv
       md5: c807df8d6d804ab2647fc15c3d40f543
       size: 18289443
@@ -14,43 +14,43 @@ stages:
       size: 109575994
     outs:
     - path: data/norm_params.json
-      md5: 444821bff2714fe605c04b7dee463a54
-      size: 181867
+      md5: e46984ac8b7097bfddfe5d9210f78ca4
+      size: 54
     - path: data/processed_test_data.npy
-      md5: d2e778bdb3746f6ad48c34a1d5aaf0ae
-      size: 1680128
+      md5: a5257a91e73920bdd4cafd0f88105b74
+      size: 62800128
     - path: data/processed_train_data.npy
-      md5: 6429b01550dc9fe5680929401490ccbd
-      size: 10080128
+      md5: 9ee0468925c998fda26d197a14d1caec
+      size: 376800128
   training:
     cmd: python code/train_model.py
     deps:
     - path: code/train_model.py
-      md5: 37d49ad9a376802e6324d64364deda06
-      size: 1667
+      md5: f197eff5981fb2992ce03c0bbd92fd29
+      size: 2601
     - path: data/processed_train_data.npy
-      md5: 6429b01550dc9fe5680929401490ccbd
-      size: 10080128
+      md5: 9ee0468925c998fda26d197a14d1caec
+      size: 376800128
     outs:
     - path: data/model.pkl
-      md5: 204b4ee4ff3ca7d1d41802b1f3bb7742
-      size: 836166
+      md5: 5457beb4781ccdac889c164fea4a4d8a
+      size: 1727959
     - path: metrics/train_metric.json
-      md5: a676e064936bbfdabdbd00f1e4fc7796
-      size: 37
+      md5: 3d494573a2471b49df00dd628beb8122
+      size: 36
   eval:
     cmd: python code/eval.py
     deps:
     - path: code/eval.py
-      md5: af19bb21bba39a67fe9de24cccb1c816
-      size: 1874
+      md5: f6d91fcac5e8266cd7b145b65ca3ff19
+      size: 2126
     - path: data/model.pkl
-      md5: 204b4ee4ff3ca7d1d41802b1f3bb7742
-      size: 836166
+      md5: 5457beb4781ccdac889c164fea4a4d8a
+      size: 1727959
     - path: data/processed_test_data.npy
-      md5: d2e778bdb3746f6ad48c34a1d5aaf0ae
-      size: 1680128
+      md5: a5257a91e73920bdd4cafd0f88105b74
+      size: 62800128
     outs:
     - path: metrics/eval.json
-      md5: 6ed4bd7c59ea9e533b4f18380d07c813
+      md5: 9eb797e7a55a95b0f3350734144187f1
       size: 84
