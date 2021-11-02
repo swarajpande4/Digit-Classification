@@ -15,9 +15,9 @@ def featurization():
     test_data = pd.read_csv('./data/test_data.csv', header=None, dtype=float).values
     print("done.")
 
-    # Creating PCA object of the 15 most important components
+    # Creating PCA object of the 30 most important components
     print("Creating PCA object...")
-    pca = PCA(n_components=20, whiten=True)
+    pca = PCA(n_components=30, whiten=True)
     pca.fit(train_data[:, 1:])
 
     train_labels = train_data[:, 0].reshape([train_data.shape[0], 1])

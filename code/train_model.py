@@ -4,7 +4,7 @@ Train classification model for MNIST
 import json
 import pickle
 import numpy as np
-from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.multiclass import OneVsRestClassifier
 import time
 
@@ -34,7 +34,7 @@ def train_model():
 
     # Defining SVM classifier and train model
     print("Training model...")
-    model = OneVsRestClassifier(SVC(kernel='linear'), n_jobs=6)
+    model = OneVsRestClassifier(DecisionTreeClassifier(), n_jobs=50)
     model.fit(data, labels)
     print("done.")
 
