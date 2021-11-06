@@ -1,14 +1,41 @@
-## MNIST - Classification
-An ML / MLOps classification project on MNIST - Database of Handwritten Digits implemented using convolutional neural network (CNN) with the help of PyTorch and DVC libraries.
+## Digit Classification
+An ML / MLOps classification project on MNIST - Database of Handwritten Digits implemented using convolutional neural network (ConvNet / CNN) with the help of PyTorch and DVC libraries.
 
 DAGsHub Link (for experimentation and pipelining): [Click Here!](https://dagshub.com/swarajpande4/Digit-Classification)
 
-<!-- 
 <br>
 
 ### To build from source
+1.  Install [Git](https://git-scm.com) and [DVC](https://dvc.org). 
 
- -->
+2.  Clone the repository. 
+    ```
+    git clone https://github.com/swarajpande4/Digit-Classification.git
+    
+    cd Digit-Classification/
+    ```
+
+3.  Set up virtual environment for python.
+    ```
+    pip install virtualenv
+    
+    virtualenv venv/
+
+    source venv/bin/activate
+
+    pip install -r requirements.txt
+    ```
+
+4.  Run the following command to execute the [pipeline](https://dagshub.com/swarajpande4/Digit-Classification) after making changes to the `code/` scripts.
+    ```
+    dvc repro
+    ```
+
+5.  Deactivate the virtual environment.
+    ```
+    deactivate
+    ```
+
 
 <br>
 
